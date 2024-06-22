@@ -1,0 +1,33 @@
+---
+title: "Demo Day: Intelligence and Education"
+execute: 
+  echo: false
+  warning: false
+  
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(gssr)
+data(gss_all)
+```
+
+```{r}
+gss_data <- gss_all %>%
+  select(year, wordsum, educ) %>%
+  filter(!is.na(wordsum) & !is.na(educ))
+```
+
+```{r}
+ggplot(gss_data, aes(x = educ, y = wordsum, color = factor(year))) +
+  geom_jitter(alpha = 0.3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Relationship between Wordsum and Education Level Over Time",
+       x = "Education Level (Years)",
+       y = "Wordsum Score",
+       color = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
