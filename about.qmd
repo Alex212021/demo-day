@@ -2,11 +2,14 @@
 title: "About"
 ---
 
-My name is Aleksandar Joksic, data scientist in spe. 
+My name is Aleksandar Joksic, data scientist in spe.
 
-https://github.com/Alex212021
-aleks.joksic@gmail.com 
+[My GitHub account](https://github.com/Alex212021)
+
+You can contact me at aleks.joksic\@gmail.com
 
 In this project I study the relationship between intelligence and education.
 
 This project was created as a part of [Kane's Free Data Science Bootcamp](https://bootcamp.davidkane.info/)
+
+![](images/dafoe.jpg){fig-align="center"}
