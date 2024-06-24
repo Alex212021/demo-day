@@ -1,5 +1,5 @@
 ---
-title: "Demo Day: Intelligence and Education"
+title: "Intelligence and Education"
 execute: 
   echo: false
   warning: false
@@ -23,7 +23,7 @@ gss_data <- gss_all %>%
 ggplot(gss_data, aes(x = educ, y = wordsum, color = factor(year))) +
   geom_jitter(alpha = 0.3) +
   geom_smooth(method = "lm", se = FALSE) +
-  labs(title = "Relationship between Wordsum and Education Level Over Time",
+  labs(title = "Relationship between Wordsum and Education Level Has Decreased Over Time",
        x = "Education Level (Years)",
        y = "Wordsum Score",
        color = "Year") +
