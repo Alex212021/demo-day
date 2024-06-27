@@ -2,9 +2,9 @@
 title: "About"
 ---
 
-My name is Aleksandar Joksic, data scientist in spe.
+My name is Aleksandar Joksic, a data scientist in spe.
 
-[My GitHub account](https://github.com/Alex212021) and my [GitHub repository](https://github.com/Alex212021/demo-day) for this project. 
+Check my [GitHub account](https://github.com/Alex212021) and my [GitHub repository](https://github.com/Alex212021/demo-day) for this project. 
 
 You can reach me at aleks.joksic\@gmail.com
 

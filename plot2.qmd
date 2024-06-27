@@ -4,7 +4,7 @@ execute:
   echo: false
   warning: false
 ---
-Another plot to visualize the change in the relationship between intelligence (Wordsum proxy) and education
+Another way to visualize the change in the relationship between intelligence (Wordsum proxy) and education
 
 ```{r}
 #| message: false
@@ -33,11 +33,12 @@ gss_data <- gss_all %>%
 ggplot(gss_data, aes(x = educ, y = wordsum, color = decade)) +
   geom_jitter(alpha = 0.1) +  # Make points more transparent
   geom_smooth(method = "lm", se = FALSE, size = 1.5) +  # Increase line width
-  labs(title = "Relationship between Wordsum and Education Level by Decade",
+  labs(title = "Relationship Between Intelligence (Wordsum) and Education Level by Decade",
        subtitle = "The strength of the relationship seems to be decreasing with time",
        x = "Education Level (Years)",
        y = "Wordsum Score",
-       color = "Decade") +
+       color = "Decade",
+       caption = "Source: General Social Survey") +
   theme_minimal() +
   theme(legend.position = "bottom")
 ```

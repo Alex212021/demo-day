@@ -7,7 +7,9 @@ execute:
 
 **Does the strength of the relationship between intelligence and education change over time?**
 
-Using the 10-item vocabulary test called "Wordsum" as a proxy for intelligence, we produced a series of plots to visualize the change in the relationship between intelligence and education level from 1974 to 2020. \n \n
+
+
+Using the 10-item vocabulary test called "Wordsum" as a proxy for intelligence, we produced a series of plots to visualize the change in the relationship between intelligence and education level from 1974 to 2020.
 
 ```{r}
 library(tidyverse)
