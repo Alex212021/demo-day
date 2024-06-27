@@ -4,7 +4,7 @@ execute:
   echo: false
   warning: false
 ---
-Another plot to visualize the relationship between intelligence (Wordsum proxy) and education
+Another plot to visualize the change in the relationship between intelligence (Wordsum proxy) and education
 
 ```{r}
 #| message: false

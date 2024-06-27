@@ -3,4 +3,5 @@ title: "Sources"
 ---
 **Data source used in my project**
 
-The data was pulled from the General Social Survey using the gssr package. Mapping data was then used to visualize the relationship between intelligence (10-item vocabulary test called "Wordsum" was used as proxy for intelligence) and education level from 1974 to 2020. 
+
+The data was pulled from the General Social Survey using the [gssr package](https://kjhealy.github.io/gssrdoc/). Data from the 1970s to the 2020s was used to analyze the relationship between the intelligence and education.
