@@ -8,6 +8,10 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: plot2.qmd
+        text: Plot 2
+      - href: sources.qmd
+        text: Sources
 
 format:
   html:

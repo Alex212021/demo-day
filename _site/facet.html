@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Intelligence and Education - About</title>
+<title>Intelligence and Education - facet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,16 +93,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./plot2.html"> 
-<span class="menu-text">Plot 2</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./sources.html"> 
-<span class="menu-text">Sources</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -116,14 +108,23 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-necessary-libraries" id="toc-load-necessary-libraries" class="nav-link active" data-scroll-target="#load-necessary-libraries">Load necessary libraries</a></li>
+  <li><a href="#load-the-gss-data" id="toc-load-the-gss-data" class="nav-link" data-scroll-target="#load-the-gss-data">Load the GSS data</a></li>
+  <li><a href="#prepare-the-data" id="toc-prepare-the-data" class="nav-link" data-scroll-target="#prepare-the-data">Prepare the data</a></li>
+  <li><a href="#create-a-scatter-plot-with-a-smooth-line-to-show-the-relationship-by-decade" id="toc-create-a-scatter-plot-with-a-smooth-line-to-show-the-relationship-by-decade" class="nav-link" data-scroll-target="#create-a-scatter-plot-with-a-smooth-line-to-show-the-relationship-by-decade">Create a scatter plot with a smooth line to show the relationship by decade</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">facet</h1>
 </div>
 
 
@@ -140,18 +141,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>My name is Aleksandar Joksic, data scientist in spe.</p>
-<p><a href="https://github.com/Alex212021">My GitHub account</a></p>
-<p>You can contact me at aleks.joksic@gmail.com</p>
-<p>In this project I study the relationship between intelligence and education.</p>
-<p>This project was created as a part of <a href="https://bootcamp.davidkane.info/">Kane’s Free Data Science Bootcamp</a></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/dafoe.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
+<section id="load-necessary-libraries" class="level1">
+<h1>Load necessary libraries</h1>
+<p>library(tidyverse) library(gssr)</p>
+</section>
+<section id="load-the-gss-data" class="level1">
+<h1>Load the GSS data</h1>
+<p>data(gss_all)</p>
+</section>
+<section id="prepare-the-data" class="level1">
+<h1>Prepare the data</h1>
+<p>gss_data &lt;- gss_all %&gt;% select(year, wordsum, educ) %&gt;% filter(!is.na(wordsum) &amp; !is.na(educ)) %&gt;% mutate(decade = case_when( year &gt;= 1970 &amp; year &lt; 1980 ~ “1970s”, year &gt;= 1980 &amp; year &lt; 1990 ~ “1980s”, year &gt;= 1990 &amp; year &lt; 2000 ~ “1990s”, year &gt;= 2000 &amp; year &lt; 2010 ~ “2000s”, year &gt;= 2010 &amp; year &lt; 2020 ~ “2010s”, year &gt;= 2020 ~ “2020s” ))</p>
+</section>
+<section id="create-a-scatter-plot-with-a-smooth-line-to-show-the-relationship-by-decade" class="level1">
+<h1>Create a scatter plot with a smooth line to show the relationship by decade</h1>
+<p>ggplot(gss_data, aes(x = educ, y = wordsum)) + geom_jitter(alpha = 0.3, color = “blue”) + # Make points more transparent geom_smooth(method = “lm”, se = FALSE, color = “red”, size = 1.5) + # Increase line width and change color facet_wrap(~ decade) + labs(title = “Relationship between Wordsum and Education Level by Decade”, x = “Education Level (Years)”, y = “Wordsum Score”) + theme_minimal() + theme(legend.position = “bottom”)</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -235,7 +242,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/alex212021\.quarto\.pub\/intelligence-and-education");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -5,16 +5,18 @@ execute:
   warning: false
 ---
 
-Does the relationship between intelligence and education change over time? The following data was pulled from the General Social Survey using the gssr package. Mapping data was then used to visualize the relationship between intelligence (10-item vocabulary test called "Wordsum" was used as proxy for intelligence) and education level from 1974 to 2020. The strength of the relationship between intelligence and education seems to be decreasing with time.
+**Does the relationship between intelligence and education change over time?**
+
+Using the 10-item vocabulary test called "Wordsum" as a proxy for intelligence, we produced a series of plots to visualize the change in the relationship between intelligence and education level from 1974 to 2020. \n \n
 
 ```{r}
-#| message: false
 library(tidyverse)
 library(gssr)
-data(gss_all)
-```
+library(ggpubr)
 
-```{r}
+# Load the GSS data
+data(gss_all)
+
 # Prepare the data
 gss_data <- gss_all %>%
   select(year, wordsum, educ) %>%
@@ -27,18 +29,20 @@ gss_data <- gss_all %>%
     year >= 2010 & year < 2020 ~ "2010s",
     year >= 2020 ~ "2020s"
   ))
-```
 
-```{r}
-# Create a scatter plot with a smooth line to show the relationship by decade
-ggplot(gss_data, aes(x = educ, y = wordsum, color = decade)) +
-  geom_jitter(alpha = 0.1) +  # Make points more transparent
-  geom_smooth(method = "lm", se = FALSE, size = 1.5) +  # Increase line width
-  labs(title = "Relationship between Wordsum and Education Level by Decade",
-       subtitle = "The strength of the relationship seems to be decreasing with time",
+# Create a scatter plot with a smooth line and correlation coefficient by decade
+ggplot(gss_data, aes(x = educ, y = wordsum)) +
+  geom_jitter(alpha = 0.1, color = "blue") +  # Make points more transparent
+  geom_smooth(method = "lm", se = FALSE, color = "red", size = 1.5) +  # Increase line width and change color
+  facet_wrap(~ decade) +
+  stat_cor(aes(label = ..r.label..), method = "pearson", label.x = 15, label.y = 11, size = 4, color = "black") +  # Add correlation coefficient
+  labs(title = "Relationship between Intelligence (Wordsum) and Education Level by Decade",
+       subtitle = "The strength of the relationship seems to be weakening with time",
        x = "Education Level (Years)",
        y = "Wordsum Score",
-       color = "Decade") +
+       caption = "Source: General Social Survey") +
   theme_minimal() +
   theme(legend.position = "bottom")
 ```
+
+The strength of the relationship between intelligence (Wordsum proxy) and education seems to be decreasing with time.
