@@ -4,14 +4,14 @@
     "href": "sources.html",
     "title": "Sources",
     "section": "",
-    "text": "Data source used in my project\nThe data was pulled from the General Social Survey using the gssr package. Data from the 1970s to the 2020s was used to analyze the relationship between the intelligence and education."
+    "text": "Data source used in my project\nThe data was pulled from the General Social Survey using the gssr package. Data from the surveys administered from 1974 to the 2022 was used to analyze the relationship between the intelligence and education."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Intelligence and Education",
     "section": "",
-    "text": "Does the strength of the relationship between intelligence and education change over time?\nUsing the 10-item vocabulary test called “Wordsum” as a proxy for intelligence, we produced a series of plots to visualize the change in the relationship between intelligence and education level from 1974 to 2020.\n\n\n\n\n\n\n\n\n\nThe strength of the relationship between intelligence (Wordsum proxy) and education seems to be decreasing with time."
+    "text": "Does the strength of the relationship between intelligence and education change over time?\nUsing the 10-item vocabulary test called “Wordsum” as a proxy for intelligence, we produced a series of plots to visualize the change in the relationship between intelligence and education level from 1974 to 2022.\n\n\n\n\n\n\n\n\n\nThe strength of the relationship between intelligence (Wordsum proxy) and education seems to be decreasing with time."
   },
   {
     "objectID": "about.html",
